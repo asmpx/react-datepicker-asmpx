@@ -35,7 +35,7 @@
   border-bottom: 1px solid $border-color;
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
-  padding-top: 8px;
+  padding-top: 10px;
   position: relative;
 }
 
@@ -128,7 +128,15 @@
   margin: $day-margin;
 }
 
-.react-datepicker__day-name,
+.react-datepicker__day-name {
+  color: $muted-color;
+  display: inline-block;
+  width: $item-size;
+  line-height: $item-size;
+  text-align: center;
+  margin: $day-margin;
+}
+
 .react-datepicker__day {
   color: $text-color;
   display: inline-block;
@@ -148,6 +156,7 @@
 
   &--today {
     font-weight: bold;
+    color: $today-color;
   }
 
   &--highlighted {
@@ -200,6 +209,14 @@
     &:hover {
       background-color: transparent;
     }
+  }
+}
+
+.react-datepicker__day--today.react-datepicker__day--selected {
+  background-color: $today-color;
+
+  &:hover {
+    background-color: darken($today-color, 5%);
   }
 }
 
@@ -334,6 +351,9 @@
   font-weight: bold;
   padding: 5px 0;
   clear: left;
+  color: $today-color;
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
 }
 
 .react-datepicker__tether-element {
@@ -354,16 +374,16 @@
 
   .react-datepicker__day-name,
   .react-datepicker__day {
-    width: 3rem;
-    line-height: 3rem;
+    width: 48px;
+    line-height: 48px;
   }
 
   // Resize for small screens
   @media (max-width: 400px), (max-height: 550px)  {
     .react-datepicker__day-name,
     .react-datepicker__day {
-      width: 2rem;
-      line-height: 2rem;
+      width: 32px;
+      line-height: 32px;
     }
   }
 
@@ -392,4 +412,19 @@
   }
 }
 
+.react-datepicker__month-select,
+.react-datepicker__year-select {
+  height: 48px;
+  text-indent: 5px;
+  width: 122px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #fff;
+}
 
+.react-datepicker__year-dropdown-container--select,
+.react-datepicker__month-dropdown-container--select,
+.react-datepicker__year-dropdown-container--scroll,
+.react-datepicker__month-dropdown-container--scroll {
+  margin: 0 5px;
+}

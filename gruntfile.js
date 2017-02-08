@@ -20,8 +20,8 @@ module.exports = function (grunt) {
     sass: {
       min: {
         files: {
-          'dist/react-datepicker.css': 'src/stylesheets/datepicker.scss',
-          'dist/react-datepicker-cssmodules.css': 'src/stylesheets/datepicker-cssmodules.scss'
+          'dist/react-datepicker-asmpx.css': 'src/stylesheets/datepicker.scss',
+          'dist/react-datepicker-asmpx-cssmodules.css': 'src/stylesheets/datepicker-cssmodules.scss'
         },
         options: {
           sourcemap: 'none',
@@ -30,8 +30,8 @@ module.exports = function (grunt) {
       },
       unmin: {
         files: {
-          'dist/react-datepicker.min.css': 'src/stylesheets/datepicker.scss',
-          'dist/react-datepicker-cssmodules.min.css': 'src/stylesheets/datepicker-cssmodules.scss'
+          'dist/react-datepicker-asmpx.min.css': 'src/stylesheets/datepicker.scss',
+          'dist/react-datepicker-asmpx-cssmodules.min.css': 'src/stylesheets/datepicker-cssmodules.scss'
         },
         options: {
           sourcemap: 'none',
@@ -94,12 +94,12 @@ module.exports = function (grunt) {
     webpack: {
       unmin: mergeWebpackConfig({
         output: {
-          filename: 'react-datepicker.js'
+          filename: 'react-datepicker-asmpx.js'
         }
       }),
       min: mergeWebpackConfig({
         output: {
-          filename: 'react-datepicker.min.js'
+          filename: 'react-datepicker-asmpx.min.js'
         },
         plugins: [
           new webpack.optimize.UglifyJsPlugin({
@@ -115,8 +115,7 @@ module.exports = function (grunt) {
             }
           }]
         }
-      }),
-      docs: require('./webpack.docs.config')
+      }) // ,docs: require('./webpack.docs.config')
     },
 
     // source build for ./lib

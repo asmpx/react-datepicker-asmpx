@@ -35,7 +35,7 @@ import MultiMonthDrp from './examples/multi_month_drp'
 import Children from './examples/children'
 import Portal from './examples/portal'
 
-import 'react-datepicker/dist/react-datepicker.css'
+import 'react-datepicker-asmpx/dist/react-datepicker-asmpx.css'
 import './style.scss'
 
 export default React.createClass({
@@ -46,6 +46,14 @@ export default React.createClass({
   },
 
   examples: [
+    {
+      title: 'Year select dropdown',
+      component: <YearSelectDropdown />
+    },
+    {
+      title: `TimeZone date`,
+      component: <TimeZoneDate />
+    },
     {
       title: 'Default',
       component: <Default />
@@ -65,10 +73,6 @@ export default React.createClass({
     {
       title: 'Today button',
       component: <Today />
-    },
-    {
-      title: `TimeZone date`,
-      component: <TimeZoneDate />
     },
     {
       title: 'Placeholder text',
@@ -137,10 +141,6 @@ export default React.createClass({
     {
       title: 'Month dropdown',
       component: <MonthDropdown />
-    },
-    {
-      title: 'Year select dropdown',
-      component: <YearSelectDropdown />
     },
     {
       title: 'Inline version',

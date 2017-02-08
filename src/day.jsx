@@ -19,7 +19,8 @@ var Day = React.createClass({
     selectsEnd: React.PropTypes.bool,
     selectsStart: React.PropTypes.bool,
     startDate: React.PropTypes.object,
-    utcOffset: React.PropTypes.number
+    utcOffset: React.PropTypes.number,
+    showOutsideDays: React.PropTypes.bool
   },
   getDefaultProps () {
     return {
@@ -149,14 +150,16 @@ var Day = React.createClass({
   },
 
   render () {
+    const isOutsideMonth = !this.props.showOutsideDays && this.isOutsideMonth()
+
     return (
       <div
           className={this.getClassNames()}
-          onClick={this.handleClick}
-          onMouseEnter={this.handleMouseEnter}
+          onClick={isOutsideMonth ? null : this.handleClick}
+          onMouseEnter={isOutsideMonth ? null : this.handleMouseEnter}
           aria-label={`day-${this.props.day.date()}`}
           role="option">
-          {this.props.day.date()}
+          {isOutsideMonth ? '' : this.props.day.date()}
       </div>
     )
   }

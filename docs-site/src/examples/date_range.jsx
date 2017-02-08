@@ -1,5 +1,5 @@
 var React = require('react')
-var DatePicker = require('react-datepicker')
+var DatePicker = require('react-datepicker-asmpx')
 var moment = require('moment')
 
 var DateRange = React.createClass({

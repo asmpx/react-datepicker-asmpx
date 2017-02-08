@@ -51,6 +51,7 @@ var DatePicker = React.createClass({
     onChange: React.PropTypes.func.isRequired,
     onFocus: React.PropTypes.func,
     onMonthChange: React.PropTypes.func,
+    onYearChange: React.PropTypes.func,
     openToDate: React.PropTypes.object,
     peekNextMonth: React.PropTypes.bool,
     placeholderText: React.PropTypes.string,
@@ -74,7 +75,10 @@ var DatePicker = React.createClass({
     title: React.PropTypes.string,
     todayButton: React.PropTypes.string,
     utcOffset: React.PropTypes.number,
-    withPortal: React.PropTypes.bool
+    withPortal: React.PropTypes.bool,
+    showOutsideDays: React.PropTypes.bool,
+    hideMonthNavigation: React.PropTypes.bool,
+    autoSelect: React.PropTypes.bool
   },
 
   getDefaultProps () {
@@ -98,7 +102,10 @@ var DatePicker = React.createClass({
       ],
       utcOffset: moment().utcOffset(),
       monthsShown: 1,
-      withPortal: false
+      withPortal: false,
+      showOutsideDays: false,
+      hideMonthNavigation: false,
+      autoSelect: false
     }
   },
 
@@ -204,9 +211,13 @@ var DatePicker = React.createClass({
   },
 
   setPreSelection (date) {
-    this.setState({
-      preSelection: date
-    })
+    if (this.props.autoSelect) {
+      this.setSelected(date)
+    } else {
+      this.setState({
+        preSelection: date
+      })
+    }
   },
 
   onInputClick () {
@@ -303,7 +314,10 @@ var DatePicker = React.createClass({
         monthsShown={this.props.monthsShown}
         onDropdownFocus={this.handleDropdownFocus}
         onMonthChange={this.props.onMonthChange}
-        className={this.props.calendarClassName}>
+        onYearChange={this.props.onYearChange}
+        className={this.props.calendarClassName}
+        showOutsideDays={this.props.showOutsideDays}
+        hideMonthNavigation={this.props.hideMonthNavigation}>
       {this.props.children}
     </WrappedCalendar>
   },

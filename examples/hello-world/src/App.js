@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DatePicker from 'react-datepicker';
+import DatePicker from 'react-datepicker-asmpx';
 import moment from 'moment';
 
 import 'react-datepicker/dist/react-datepicker.css';

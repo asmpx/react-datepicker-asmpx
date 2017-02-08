@@ -42,6 +42,7 @@ var Calendar = React.createClass({
     monthsShown: React.PropTypes.number,
     onClickOutside: React.PropTypes.func.isRequired,
     onMonthChange: React.PropTypes.func,
+    onYearChange: React.PropTypes.func,
     forceShowMonthNavigation: React.PropTypes.bool,
     onDropdownFocus: React.PropTypes.func,
     onSelect: React.PropTypes.func.isRequired,
@@ -57,7 +58,9 @@ var Calendar = React.createClass({
     showYearDropdown: React.PropTypes.bool,
     startDate: React.PropTypes.object,
     todayButton: React.PropTypes.string,
-    utcOffset: React.PropTypes.number
+    utcOffset: React.PropTypes.number,
+    showOutsideDays: React.PropTypes.bool,
+    hideMonthNavigation: React.PropTypes.bool
   },
 
   defaultProps: {
@@ -154,6 +157,12 @@ var Calendar = React.createClass({
     this.setState({ selectingDate: null })
   },
 
+  handleYearChange (date) {
+    if (this.props.onYearChange) {
+      this.props.onYearChange(date)
+    }
+  },
+
   handleMonthChange (date) {
     if (this.props.onMonthChange) {
       this.props.onMonthChange(date)
@@ -163,7 +172,7 @@ var Calendar = React.createClass({
   changeYear (year) {
     this.setState({
       date: this.state.date.clone().set('year', year)
-    })
+    }, () => this.handleYearChange(this.state.date))
   },
 
   changeMonth (month) {
@@ -193,6 +202,9 @@ var Calendar = React.createClass({
   },
 
   renderPreviousMonthButton () {
+    if (this.props.hideMonthNavigation) {
+      return
+    }
     if (!this.props.forceShowMonthNavigation && allDaysDisabledBefore(this.state.date, 'month', this.props)) {
       return
     }
@@ -202,6 +214,9 @@ var Calendar = React.createClass({
   },
 
   renderNextMonthButton () {
+    if (this.props.hideMonthNavigation) {
+      return
+    }
     if (!this.props.forceShowMonthNavigation && allDaysDisabledAfter(this.state.date, 'month', this.props)) {
       return
     }
@@ -211,6 +226,9 @@ var Calendar = React.createClass({
   },
 
   renderCurrentMonth (date = this.state.date) {
+    if (this.props.showMonthDropdown || this.props.showYearDropdown) {
+      return
+    }
     var classes = ['react-datepicker__current-month']
     if (this.props.showYearDropdown) {
       classes.push('react-datepicker__current-month--hasYearDropdown')
@@ -304,7 +322,8 @@ var Calendar = React.createClass({
                 startDate={this.props.startDate}
                 endDate={this.props.endDate}
                 peekNextMonth={this.props.peekNextMonth}
-                utcOffset={this.props.utcOffset}/>
+                utcOffset={this.props.utcOffset}
+                showOutsideDays={this.props.showOutsideDays}/>
           </div>
       )
     }

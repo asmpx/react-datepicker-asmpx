@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 
-import DatePicker from 'react-datepicker'
+import DatePicker from 'react-datepicker-asmpx'
 
 export default React.createClass({
   displayName: 'Default',
@@ -9,7 +9,7 @@ export default React.createClass({
   getInitialState () {
     return {
       startDate: null,
-      utcOffset: -4
+      utcOffset: -3
     }
   },
 
@@ -17,8 +17,12 @@ export default React.createClass({
     { name: 'GMT+10', value: 10 },
     { name: 'GMT+8', value: 8 },
     { name: 'GMT+4', value: 4 },
+    { name: 'GMT+3', value: 3 },
+    { name: 'GMT+2', value: 2 },
     { name: 'GMT+1', value: 1 },
     { name: 'GMT', value: 0 },
+    { name: 'GMT-1', value: -1 },
+    { name: 'GMT-2', value: -2 },
     { name: 'GMT-3', value: -3 },
     { name: 'GMT-4', value: -4 },
     { name: 'GMT-8', value: -8 },
@@ -66,8 +70,8 @@ export default React.createClass({
             dateFormat="DD-MMM YYYY HH:mm"
             todayButton={todayTxt}
             selected={selected}
-            minDate={moment('2016-11-05T00:00:00+00:00').utcOffset(this.state.utcOffset)}
-            maxDate={moment('2016-12-04T00:00:00-04:00').utcOffset(this.state.utcOffset)}
+            minDate={moment('2017-01-05T00:00:00+00:00').utcOffset(this.state.utcOffset)}
+            maxDate={moment('2017-02-14T00:00:00+00:00').utcOffset(this.state.utcOffset)}
             onChange={this.handleChange} />
         <br/>
         <label className="example__timezone-label">
@@ -76,8 +80,12 @@ export default React.createClass({
             <option value="10">GMT+10:00</option>
             <option value="8">GMT+08:00</option>
             <option value="4">GMT+04:00</option>
+            <option value="3">GMT+03:00</option>
+            <option value="2">GMT+02:00</option>
             <option value="1">GMT+01:00</option>
             <option value="0">GMT</option>
+            <option value="-1">GMT-01:00</option>
+            <option value="-2">GMT-02:00</option>
             <option value="-3">GMT-03:00</option>
             <option value="-4">GMT-04:00</option>
             <option value="-8">GMT-08:00</option>
