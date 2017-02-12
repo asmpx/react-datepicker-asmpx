@@ -9,7 +9,7 @@ export default React.createClass({
     console.log('moment()', moment())
     console.log('moment()', moment().utcOffset(-3))
     return {
-      startDate: moment()
+      //startDate: moment()
     }
   },
 

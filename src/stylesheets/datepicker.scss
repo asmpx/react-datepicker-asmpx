@@ -25,6 +25,10 @@
   @extend %triangle-arrow-down;
 }
 
+.react-datepicker__tether-element-attached-bottom .react-datepicker__has-today-button .react-datepicker__triangle {
+  border-top-color: $background-color;
+}
+
 .react-datepicker__tether-element-attached-bottom.react-datepicker__tether-element {
   margin-top: -20px;
 }
@@ -157,6 +161,9 @@
   &--today {
     font-weight: bold;
     color: $today-color;
+    box-shadow: 0 0 0 1px $today-color;
+    background-color: transparent;
+    border-radius: $border-radius;
   }
 
   &--highlighted {
@@ -215,7 +222,8 @@
 .react-datepicker__day--today.react-datepicker__day--selected {
   background-color: $today-color;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: darken($today-color, 5%);
   }
 }
@@ -349,7 +357,7 @@
   cursor: pointer;
   text-align: center;
   font-weight: bold;
-  padding: 5px 0;
+  padding: 10px 0;
   clear: left;
   color: $today-color;
   border-bottom-left-radius: $border-radius;
@@ -379,7 +387,7 @@
   }
 
   // Resize for small screens
-  @media (max-width: 400px), (max-height: 550px)  {
+  @media (max-width: 400px), (max-height: 550px) {
     .react-datepicker__day-name,
     .react-datepicker__day {
       width: 32px;

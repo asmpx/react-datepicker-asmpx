@@ -332,7 +332,9 @@ var Calendar = React.createClass({
 
   render () {
     return (
-      <div className={classnames('react-datepicker', this.props.className)}>
+      <div className={classnames('react-datepicker', this.props.className, {
+        'react-datepicker__has-today-button': !!this.props.todayButton
+      })}>
         <div className="react-datepicker__triangle" />
         {this.renderPreviousMonthButton()}
         {this.renderNextMonthButton()}
