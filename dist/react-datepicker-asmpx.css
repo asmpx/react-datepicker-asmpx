@@ -48,13 +48,16 @@
   background-color: #fff;
   color: #000;
   border: 1px solid #aeaeae;
-  border-radius: 0.3em;
+  border-radius: 0.25em;
   display: inline-block;
   position: relative; }
 
 .react-datepicker__triangle {
   position: absolute;
   left: 50px; }
+
+.react-datepicker__tether-element-attached-bottom .react-datepicker__has-today-button .react-datepicker__triangle {
+  border-top-color: #f0f0f0; }
 
 .react-datepicker__tether-element-attached-bottom.react-datepicker__tether-element {
   margin-top: -20px; }
@@ -63,8 +66,8 @@
   text-align: center;
   background-color: #f0f0f0;
   border-bottom: 1px solid #aeaeae;
-  border-top-left-radius: 0.3em;
-  border-top-right-radius: 0.3em;
+  border-top-left-radius: 0.25em;
+  border-top-right-radius: 0.25em;
   padding-top: 10px;
   position: relative; }
 
@@ -152,25 +155,28 @@
 .react-datepicker__day {
   cursor: pointer; }
   .react-datepicker__day:hover {
-    border-radius: 0.3em;
+    border-radius: 0.25em;
     background-color: #f0f0f0; }
   .react-datepicker__day--today {
     font-weight: bold;
-    color: #039be5; }
+    color: #039be5;
+    box-shadow: 0 0 0 1px #039be5;
+    background-color: transparent;
+    border-radius: 0.25em; }
   .react-datepicker__day--highlighted {
-    border-radius: 0.3em;
+    border-radius: 0.25em;
     background-color: #3dcc4a;
     color: #fff; }
     .react-datepicker__day--highlighted:hover {
       background-color: #32be3f; }
   .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range {
-    border-radius: 0.3em;
+    border-radius: 0.25em;
     background-color: #000;
     color: #fff; }
     .react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover {
       background-color: black; }
   .react-datepicker__day--keyboard-selected {
-    border-radius: 0.3em;
+    border-radius: 0.25em;
     background-color: #1a1919;
     color: #fff; }
     .react-datepicker__day--keyboard-selected:hover {
@@ -188,7 +194,7 @@
 
 .react-datepicker__day--today.react-datepicker__day--selected {
   background-color: #039be5; }
-  .react-datepicker__day--today.react-datepicker__day--selected:hover {
+  .react-datepicker__day--today.react-datepicker__day--selected:hover, .react-datepicker__day--today.react-datepicker__day--selected:focus {
     background-color: #038acc; }
 
 .react-datepicker__input-container {
@@ -198,7 +204,7 @@
 .react-datepicker__year-read-view,
 .react-datepicker__month-read-view {
   border: 1px solid transparent;
-  border-radius: 0.3em; }
+  border-radius: 0.25em; }
   .react-datepicker__year-read-view:hover,
   .react-datepicker__month-read-view:hover {
     cursor: pointer; }
@@ -224,7 +230,7 @@
   left: 25%;
   top: 30px;
   text-align: center;
-  border-radius: 0.3em;
+  border-radius: 0.25em;
   border: 1px solid #aeaeae; }
   .react-datepicker__year-dropdown:hover,
   .react-datepicker__month-dropdown:hover {
@@ -243,16 +249,16 @@
   margin-right: auto; }
   .react-datepicker__year-option:first-of-type,
   .react-datepicker__month-option:first-of-type {
-    border-top-left-radius: 0.3em;
-    border-top-right-radius: 0.3em; }
+    border-top-left-radius: 0.25em;
+    border-top-right-radius: 0.25em; }
   .react-datepicker__year-option:last-of-type,
   .react-datepicker__month-option:last-of-type {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border-bottom-left-radius: 0.3em;
-    border-bottom-right-radius: 0.3em; }
+    border-bottom-left-radius: 0.25em;
+    border-bottom-right-radius: 0.25em; }
   .react-datepicker__year-option:hover,
   .react-datepicker__month-option:hover {
     background-color: #ccc; }
@@ -301,11 +307,11 @@
   cursor: pointer;
   text-align: center;
   font-weight: bold;
-  padding: 5px 0;
+  padding: 10px 0;
   clear: left;
   color: #039be5;
-  border-bottom-left-radius: 0.3em;
-  border-bottom-right-radius: 0.3em; }
+  border-bottom-left-radius: 0.25em;
+  border-bottom-right-radius: 0.25em; }
 
 .react-datepicker__tether-element {
   z-index: 2147483647; }

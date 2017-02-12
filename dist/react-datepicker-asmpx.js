@@ -1103,7 +1103,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
-	      { className: (0, _classnames2.default)('react-datepicker', this.props.className) },
+	      { className: (0, _classnames2.default)('react-datepicker', this.props.className, {
+	          'react-datepicker__has-today-button': !!this.props.todayButton
+	        }) },
 	      _react2.default.createElement('div', { className: 'react-datepicker__triangle' }),
 	      this.renderPreviousMonthButton(),
 	      this.renderNextMonthButton(),

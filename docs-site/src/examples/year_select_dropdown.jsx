@@ -1,15 +1,13 @@
 import React from 'react'
 import DatePicker from 'react-datepicker-asmpx'
-import moment from 'moment'
+// import moment from 'moment'
 
 export default React.createClass({
   displayName: 'YearDropdown',
 
   getInitialState () {
-    console.log('moment()', moment())
-    console.log('moment()', moment().utcOffset(-3))
     return {
-      //startDate: moment()
+      startDate: null // moment()
     }
   },
 
